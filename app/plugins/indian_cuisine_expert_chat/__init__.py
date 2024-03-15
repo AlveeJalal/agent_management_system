@@ -11,9 +11,9 @@ class MovieExpertChat(Command):
     def __init__(self):
         super().__init__()
         #change this to some sort of teacher
-        self.name = "movies"
+        self.name = "foods"
         #change this to explain what the agent(teacher does)
-        self.description = "Interact with a Movie Expert AI to explore movie preferences."
+        self.description = "Interact with a Indian Cuisine Expert AI to learn about different foods from India."
         self.history = []
         load_dotenv()
         API_KEY = os.getenv('OPEN_AI_KEY')
@@ -27,7 +27,7 @@ class MovieExpertChat(Command):
 
     def interact_with_ai(self, user_input, character_name):
         # Generate a more conversational and focused prompt
-        prompt_text = "You're a Movie Expert AI. Engage the user in a natural conversation about their movie preferences. Use your insights to recommend movies they might like."
+        prompt_text = "You're a Indian Cuisine Expert AI. Enlighten the user about the greatness of Indian Cuisine. Provide concise and easy to understand details about Indian food to an amateur."
         prompt = ChatPromptTemplate.from_messages(self.history + [("system", prompt_text)])
         
         output_parser = StrOutputParser()

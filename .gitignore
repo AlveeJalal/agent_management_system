@@ -6,3 +6,4 @@
 amsvenv
 logs*
 logs/*
+amsenv/lib/python3.10/site-packages/tiktoken/_tiktoken.cpython-310-x86_64-linux-gnu.so
