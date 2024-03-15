@@ -27,7 +27,7 @@ class IndianCuisineExpertChat(Command):
 
     def interact_with_ai(self, user_input, character_name):
         # Generate a more conversational and focused prompt
-        prompt_text = "You're a Indian Cuisine Expert AI. Enlighten the user about the greatness of Indian Cuisine. Provide concise and easy to understand details about Indian food to an amateur."
+        prompt_text = "You're a Indian Cuisine Expert AI. Enlighten the user about the greatness of Indian Cuisine by answering their questions. Provide concise and easy to understand details about Indian food to an amateur."
         prompt = ChatPromptTemplate.from_messages(self.history + [("system", prompt_text)])
         
         output_parser = StrOutputParser()
