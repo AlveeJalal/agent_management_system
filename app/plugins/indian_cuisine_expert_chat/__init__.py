@@ -7,7 +7,7 @@ from langchain_core.output_parsers import StrOutputParser
 from app.commands import Command
 
 #change classname to some sort of teacher
-class MovieExpertChat(Command):
+class IndianCuisineExpertChat(Command):
     def __init__(self):
         super().__init__()
         #change this to some sort of teacher
@@ -42,20 +42,20 @@ class MovieExpertChat(Command):
 
     def execute(self, *args, **kwargs):
         #change these bottom two lines
-        character_name = kwargs.get("character_name", "Movie Expert")
-        print(f"Welcome to the Movie Expert Chat! Let's talk about your movie preferences. Type 'done' to exit anytime.")
+        character_name = kwargs.get("character_name", "Indian Cuisine Expert")
+        print(f"Welcome to the Indian Cuisine Expert Chat! Let's talk about Indian Foods! Ask a question to get started.")
 
         while True:
             user_input = input("You: ").strip()
             if user_input.lower() == "done":
-                print("Thank you for using the Movie Expert Chat. Goodbye!")
+                print("Thank you for using the Indian Cuisine Expert Chat. Goodbye!")
                 break
 
             self.history.append(("user", user_input))
             
             try:
                 response, tokens_used = self.interact_with_ai(user_input, character_name)
-                print(f"Movie Expert: {response}")
+                print(f"Indian Cuisine Expert: {response}")
                 print(f"(This interaction used {tokens_used} tokens.)")
                 self.history.append(("system", response))
             except Exception as e:
