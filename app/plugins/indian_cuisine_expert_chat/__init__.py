@@ -1,4 +1,5 @@
 import os
+from app.prompts import *
 import logging
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -16,7 +17,7 @@ class IndianCuisineExpertChat(Command):
         self.description = "Interact with a Indian Cuisine Expert AI to learn about different foods from India."
         self.history = []
         load_dotenv()
-        API_KEY = os.getenv('OPEN_AI_KEY')
+        API_KEY = os.getenv('OPENAI_API_KEY')
         # you can try GPT4 but it costs a lot more money than the default 3.5
         # self.llm = ChatOpenAI(openai_api_key=API_KEY, model="gpt-4-0125-preview")  # Initialize once and reuse
         self.llm = ChatOpenAI(openai_api_key=API_KEY)  # Initialize once and reuse
@@ -27,7 +28,7 @@ class IndianCuisineExpertChat(Command):
 
     def interact_with_ai(self, user_input, character_name):
         # Generate a more conversational and focused prompt
-        prompt_text = "You're a Indian Cuisine Expert AI. Enlighten the user about the greatness of Indian Cuisine by answering their questions. Provide concise and easy to understand details about Indian food to an amateur."
+        prompt_text = prompt1
         prompt = ChatPromptTemplate.from_messages(self.history + [("system", prompt_text)])
         
         output_parser = StrOutputParser()
