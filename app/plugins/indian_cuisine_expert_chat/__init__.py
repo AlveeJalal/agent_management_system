@@ -20,6 +20,7 @@ class IndianCuisineExpertChat(Command):
         API_KEY = os.getenv('OPENAI_API_KEY')
         # you can try GPT4 but it costs a lot more money than the default 3.5
         # self.llm = ChatOpenAI(openai_api_key=API_KEY, model="gpt-4-0125-preview")  # Initialize once and reuse
+        # self.llm = ChatOpenAI(openai_api_key=API_KEY, model="gpt-3.5-turbo-1106")  # Initialize once and reuse
         self.llm = ChatOpenAI(openai_api_key=API_KEY)  # Initialize once and reuse
 
     def calculate_tokens(self, text):
@@ -28,7 +29,7 @@ class IndianCuisineExpertChat(Command):
 
     def interact_with_ai(self, user_input, character_name):
         # Generate a more conversational and focused prompt
-        prompt_text = prompt1
+        prompt_text = prompt3
         prompt = ChatPromptTemplate.from_messages(self.history + [("system", prompt_text)])
         
         output_parser = StrOutputParser()
@@ -44,7 +45,7 @@ class IndianCuisineExpertChat(Command):
     def execute(self, *args, **kwargs):
         #change these bottom two lines
         character_name = kwargs.get("character_name", "Indian Cuisine Expert")
-        print(f"Welcome to the Indian Cuisine Expert Chat! Let's talk about Indian Foods! Ask a question to get started.")
+        print(f"Welcome to the Indian Cuisine Expert Chat! Let's talk about Indian Foods! Type something to get started.")
 
         while True:
             user_input = input("You: ").strip()
